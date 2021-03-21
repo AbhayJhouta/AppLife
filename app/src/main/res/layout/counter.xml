@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/bUserHealthUp"
+            android:layout_width="215dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:text="+"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserLife" />
+
+        <Button
+            android:id="@+id/bUserHealthDown"
+            android:layout_width="215dp"
+            android:layout_height="100dp"
+            android:text="-"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bUserHealthUp"
+            app:layout_constraintVertical_bias="0.079" />
+
+        <TextView
+            android:id="@+id/tvUserLife"
+            android:layout_width="403dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="40dp"
+            android:text="20"
+            android:textAlignment="center"
+            android:textSize="90sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
