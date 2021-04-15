@@ -18,18 +18,18 @@ public class Signup extends Activity {
     public void onSignupClick(View v) {
         if(v.getId() == R.id.bRegister){
             // set the values entered by user when registering
-            EditText setupName = (EditText) findViewById(R.id.setupName);
-            EditText setupEmail = (EditText) findViewById(R.id.setupEmail);
-            EditText setupUserName = (EditText) findViewById(R.id.setupUserName);
-            EditText setupPassword = (EditText) findViewById(R.id.setupPassword);
-            EditText setupPassword2 = (EditText) findViewById(R.id.setupPassword2);
+            EditText setupName = findViewById(R.id.setupName);
+            EditText setupEmail =  findViewById(R.id.setupEmail);
+            EditText setupUserName =  findViewById(R.id.setupUserName);
+            EditText setupPassword = findViewById(R.id.setupPassword);
+            EditText setupPassword2 =  findViewById(R.id.setupPassword2);
 
             // retrieve the entered values
-            String setupNameStr = setupName.toString();
-            String setupEmailStr = setupEmail.toString();
-            String setupUserNameStr = setupUserName.toString();
-            String setupPasswordStr = setupPassword.toString();
-            String setupPassword2Str = setupPassword2.toString();
+            String setupNameStr = setupName.getText().toString();
+            String setupEmailStr = setupEmail.getText().toString();
+            String setupUserNameStr = setupUserName.getText().toString();
+            String setupPasswordStr = setupPassword.getText().toString();
+            String setupPassword2Str = setupPassword2.getText().toString();
 
             // verify passwords match
             if(setupPasswordStr.equals(setupPassword2Str)){
@@ -44,6 +44,8 @@ public class Signup extends Activity {
                 helper.insertUser(appUser);
                 Intent main = new Intent(Signup.this, MainActivity.class);
                 startActivity(main);
+                Toast.makeText(Signup.this, "Registered", Toast.LENGTH_SHORT).show();
+
             }
             else {
                 Toast pass = Toast.makeText(Signup.this, "Passwords don't match", Toast.LENGTH_SHORT);

@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -13,10 +17,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_EMAIL = "email";
-    private static final String COLUMN_USERNAME = "userName";
+    private static final String COLUMN_USERNAME = "userText";
     private static final String COLUMN_PASSWORD = "password";
     SQLiteDatabase db;
-    private static final String TABLE_CREATE = "create table users (id integer primary key not null, name text not null, email text not null, userText text not null, password text not null);";
+    private static final String TABLE_CREATE = "create table users (id integer  not null, name text not null, email text not null, userText text not null, password text not null)";
 
 
     public DatabaseHelper(Context context){
@@ -28,7 +32,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
-        this.db = db;
 
     }
     public void insertUser(Users appUsers){
@@ -41,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-        values.put(COLUMN_ID, count);
+        values.put(COLUMN_ID, count+1);
         values.put(COLUMN_NAME, appUsers.getName());
         values.put(COLUMN_EMAIL, appUsers.getEmail());
         values.put(COLUMN_USERNAME, appUsers.getUserName());
@@ -51,6 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
+
 
     public String searchPassword(String userName){
         db = this.getReadableDatabase();

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
     public void onButtonClick(View v) {
         if (v.getId() == R.id.bLogin) {
             EditText editTextUserName = (EditText) findViewById(R.id.editTextUserName);
-            String userUN = editTextUserName.toString();
+            String userUN = editTextUserName.getText().toString();
             EditText editTextUserPassword = (EditText) findViewById(R.id.editTextUserPassword);
-            String userPW = editTextUserPassword.toString();
+            String userPW = editTextUserPassword.getText().toString();
 
             String password = helper.searchPassword(userUN);
+
             if (userPW.equals(password)){
                 Intent life = new Intent(MainActivity.this, Counter.class);
                 startActivity(life);
