@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,10 +65,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         pword = "Not Found";
         if (cursor.moveToFirst()){
             do {
-                uname = cursor.getString(2);
+                uname = cursor.getString(3);
 
                 if (uname.equals(userName)){
-                    pword = cursor.getString(3);
+                    pword = cursor.getString(4);
+                    Log.d("ipo",uname+" "+pword);
                     break;
                 }
             }
